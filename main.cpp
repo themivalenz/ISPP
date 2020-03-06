@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -14,12 +15,16 @@ class Figura {
 
 const vector<string> explode(const string& s, const char& c);
 const vector<Figura> getfigures(string filename);
+const vector<Figura> getRectangles(vector<Figura> figuras);
 
 int main(int argc, char *argv[]) {
-    if (argc > 1) {
-        int w = strtof(argv[2]);
+    if (argc > 2) {
+        int w = stoi(argv[2]);
         string filename(argv[1]);
         vector<Figura> figuras = getfigures(filename);
+        vector<Figura> rectangulos = getRectangles(figuras);
+    } else {
+        cout << "Error: se requiere nombre de archivo y ancho del contenedor" << endl;
     }
     return 0;
 }
@@ -63,4 +68,42 @@ const vector<Figura> getfigures(string filename) {
         }
     }
     return figuras; 
+}
+
+const vector<Figura> getRectangles(vector<Figura> figuras) {
+    vector<Figura> rectangulos;
+    for (int i = 0; i < figuras.size(); i++) {
+        int xmin = 2147483647;
+        int xmax = -2147483648;
+        int ymin = 2147483647;
+        int ymax = -2147483648;
+        vector<int> min;
+        vector<int> max;
+        for (int j = 0; j < figuras[i].vertices.size(); j++) {
+            int x = figuras[i].vertices[j][0];
+            int y = figuras[i].vertices[j][1];
+            if (x > xmax) {
+                xmax = x;
+            }
+            if (y > ymax) {
+                ymax = y;
+            }
+            if (x < xmin) {
+                xmin = x;
+            }
+            if (y < ymin) {
+                ymin = y;
+            }
+        }
+        min.push_back(xmin);
+        min.push_back(ymin);
+        max.push_back(xmax);
+        max.push_back(ymax);
+        Figura fig;
+        fig.ID = i;
+        fig.vertices.push_back(min);
+        fig.vertices.push_back(max);
+        rectangulos.push_back(fig);
+    }
+    return rectangulos;
 }
