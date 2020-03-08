@@ -27,3 +27,10 @@ donde:
 ## To Do
 
 * generar solucion inicial y HC con AA
+
+
+# Consideraciones adicionales
+
+Split a String: http://www.cplusplus.com/articles/2wA0RXSz/ 
+-> de ahi se sacó la funcion explode para split de string 
+-> visitada por ultima vez el jueves 5 de marzo
