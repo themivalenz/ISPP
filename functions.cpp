@@ -1,6 +1,6 @@
 #include <iostream>
 #include <algorithm>
-#include <chrono> 
+#include <ctime>
 #include <fstream>
 #include <random>
 #include <string>
@@ -127,9 +127,8 @@ const bool overlap(vector<int> heights, int start, int end) {
 const int getHeight(vector<int> heights, int start, int end) {
     int t = heights[start];
     for (int i = start+1; i < end; i++) {
-        if (heights[i] != t) {
+        if (heights[i] > t) {
             t = heights[i];
-            break;
         }
     }
     return t;
@@ -142,22 +141,28 @@ const int getHeight(vector<int> heights, int start, int end) {
 const int putRectangles(vector<Figura> rectangulos, int w) {
     int L = -1;
     int x = 0;
+    int h = 0;
     vector<int> heights(w, 0); 
     for (int i = 0; i < rectangulos.size(); i++) {
-        int length_i = rectangulos[1].vertices[1][1];
-        int width_i = rectangulos[1].vertices[1][0];
+        // eje y
+        int length_i = rectangulos[i].vertices[1][1] - rectangulos[i].vertices[0][1];
+        
+        // eje x
+        int width_i = rectangulos[i].vertices[1][0] - rectangulos[i].vertices[0][0];
         if (x + width_i > w) {
             x = 0;
+        } else {
+            if (!overlap(heights, x, x + width_i)) {
+                h = heights[x] + length_i;
+            } else {
+                h = getHeight(heights, x, x + width_i) + length_i;
+            }
+            if (h > L) {
+                L = h;
+            }
         }
         for (int j = x; j < x + width_i; j++) {
-            if (!overlap(heights, x, x + width_i)) {
-                heights[j] += length_i;
-            } else {
-                heights[j] = getHeight(heights, x, x + width_i) + length_i;
-            }
-            if (heights[j] > L) {
-                L = heights[j];
-            }
+            heights[j] = h;
         }
         x += width_i;
     }

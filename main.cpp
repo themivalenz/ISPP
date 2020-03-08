@@ -1,6 +1,6 @@
 #include <iostream>
 #include <algorithm>
-#include <chrono> 
+#include <ctime>
 #include <fstream>
 #include <random>
 #include <string>
@@ -8,11 +8,11 @@
 #include "functions.h"
 
 using namespace std;
-using namespace std::chrono;
 
 int main(int argc, char *argv[]) {
     if (argc <= 3) {
-        cout << "Error: se requiere nombre de archivo, ancho del contenedor y maximo de iteraciones" << endl;
+        cout << "[Error] Se requieren los siguientes parámetros: ";
+        cout << "<nombre_archivo.txt> <ancho_de_contenedor> <numero_de_iteraciones>" << endl;
         return 0;
     }
     
@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
     int w = stoi(argv[2]);
 
     /* Máxima cantidad de iteraciones */
-    int maxIter = stoi(argv[3]);
+    int maxIter = 500;
 
     /* Se cargan las figuras de la instancia */
     string filename(argv[1]);
@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
     cout << "Calculating..." << endl;
 
     /* Se comienza a medir el tiempo de ejecución */
-    auto start = high_resolution_clock::now();
+    clock_t start = clock();
 
     /* Solución inicial: una permutación de rectángulos */
     rectangulos = shuffleRectangles(rectangulos);
@@ -70,8 +70,7 @@ int main(int argc, char *argv[]) {
     }
 
     /* Se obtiene tiempo de cómputo */
-    auto stop = high_resolution_clock::now();
-    auto duration = duration_cast<microseconds>(stop - start);
+    clock_t end = clock();
 
     /* Se calcula el área total del contenedor */
     int areaTotal = bestL*w;
@@ -80,10 +79,9 @@ int main(int argc, char *argv[]) {
     float usage = (100.0*areaRectangles)/areaTotal;
 
     cout << "Solution:" << endl;
-    cout << printRectangles;
+    printRectangles(bestPermutation);
     cout << "Length: " << bestL << endl;
     cout << "Usage %: " << usage << endl;
-    cout << "Time: " << duration.count() << "[ms]" << endl;
-
+    cout << "Time: " << (end - start)/CLOCKS_PER_SEC << "[s]" << endl;
     return 0;
 }
