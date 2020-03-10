@@ -96,9 +96,9 @@ const vector<Figura> getRectangles(vector<Figura> figuras) {
 /* Se rota el rectángulo respecto al vértice inferior.
  * Sólo se rota en 90 grados, ya que otros ángulos de
  * rotación son equivalentes (no se consideran ángulos 
- * continuos).
+ * continuos). -> testear
 */
-void rotateRectangle(Figura rectangulo) {
+void rotateRectangle(Figura &rectangulo) {
     int x0=rectangulo.vertices[0][0];
     int y0=rectangulo.vertices[0][1];
     int x1=rectangulo.vertices[1][0];
@@ -132,13 +132,24 @@ const int getHeight(vector<int> heights, int start, int end) {
         }
     }
     return t;
-} 
+}
+
+vector<vector<int>> getVertex(vector<Figura> figuras, int ID) {
+    vector<vector<int>> vertex;
+    for (int i = 0; i < figuras.size(); i++) {
+        if (figuras[i].ID == ID) {
+            vertex = figuras[i].vertices;
+            break;
+        }
+    }
+    return vertex;
+}
 
 /* Se ubican los rectángulos en el contenedor de ancho w, y se 
  * retorna el largo necesario para ubicarlos todos sin que se 
  * solapen.
 */
-const int putRectangles(vector<Figura> rectangulos, int w) {
+const int putRectangles(vector<Figura> rectangulos, vector<Figura> figuras, int w) {
     int L = -1;
     int x = 0;
     int h = 0;
@@ -151,16 +162,13 @@ const int putRectangles(vector<Figura> rectangulos, int w) {
         int width_i = rectangulos[i].vertices[1][0] - rectangulos[i].vertices[0][0];
         if (x + width_i > w) {
             x = 0;
-        } else {
-            if (!overlap(heights, x, x + width_i)) {
-                h = heights[x] + length_i;
-            } else {
-                h = getHeight(heights, x, x + width_i) + length_i;
-            }
-            if (h > L) {
-                L = h;
-            }
         }
+        if (!overlap(heights, x, x + width_i)) {
+            h = heights[x] + length_i;
+        } else {
+            h = getHeight(heights, x, x + width_i) + length_i;
+        }
+        L = max(L, h + length_i);
         for (int j = x; j < x + width_i; j++) {
             heights[j] = h;
         }
@@ -170,20 +178,10 @@ const int putRectangles(vector<Figura> rectangulos, int w) {
 }
 
 /* Realiza un swap entre dos rectángulos dentro de la permutación */
-const vector<Figura> swap(vector<Figura> rectangulos, int i, int j) {
-    vector<Figura> rectangles;
-    Figura t_i = rectangulos[i];
+void swap(vector<Figura> &rectangulos, int i, int j) {
     Figura t_j = rectangulos[j];
-    for (int k = 0; k < rectangulos.size(); k++) {
-        if (k == i) {
-            rectangles.push_back(t_j);
-        } else if (k == j) {
-            rectangles.push_back(t_i);
-        } else {
-            rectangles.push_back(rectangulos[k]);
-        }
-    }
-    return rectangles;
+    rectangulos[j] = rectangulos[i];
+    rectangulos[i] = t_j;
 }
 
 /* Permite calcular el área total que ocupan los rectángulos */
@@ -199,27 +197,41 @@ const int totalAreaRectangles(vector<Figura> rectangulos) {
     return total;
 }
 
-/* Permite mostrar por pantalla la permutación de rectángulos. 
- * Muestra el ID del poligono asociado
-*/
-void printRectangles(vector<Figura> rectangulos) {
-    for (int i = 0; i < rectangulos.size(); i++) {
-        cout << rectangulos[i].ID << " ";
-    }
-    cout << endl;
+/* Permite generar una nueva permutación de rectángulos */
+void shuffleRectangles(vector<Figura> &rectangulos) {
+    shuffle(rectangulos.begin(), rectangulos.end(), default_random_engine {unsigned(time(0))});
 }
 
-/* Permite generar una nueva permutación de rectángulos */
-const vector<Figura> shuffleRectangles(vector<Figura> rectangulos) {
-    vector<int> v;
-    vector<Figura> rectangles;
-    int size = rectangulos.size();
-    for (int i = 0; i < size; i++) {
-        v.push_back(i);
+void printSolution(vector<Figura> rectangulos, vector<Figura> figuras, int w) {
+    int x = 0;
+    int h = 0;
+    vector<int> heights(w, 0); 
+    for (int i = 0; i < rectangulos.size(); i++) {
+        // eje y
+        int dy = rectangulos[i].vertices[1][1] - rectangulos[i].vertices[0][1];
+        // eje x
+        int dx = rectangulos[i].vertices[1][0] - rectangulos[i].vertices[0][0];
+        if (x + dx > w) {
+            x = 0;
+        } else {
+            if (!overlap(heights, x, x + dx)) {
+                h = heights[x] + dy;
+            } else {
+                h = getHeight(heights, x, x + dx) + dy;
+            }
+        }
+        for (int j = x; j < x + dx; j++) {
+            heights[j] = h;
+        }
+        vector<vector<int>> vertex = getVertex(figuras, rectangulos[i].ID);
+        for (int k = 0; k < vertex.size(); k++) {
+            int xcoor = vertex[k][0];
+            int ycoor = vertex[k][1]; 
+            xcoor += x;
+            ycoor += h;
+            cout << "(" << xcoor << "," << ycoor << ") ";
+        }
+        cout << endl;
+        x += dx;
     }
-    shuffle(v.begin(), v.end(), default_random_engine {unsigned(time(0))});
-    for (int i = 0; i < size; i++) {
-        rectangles.push_back(rectangulos[v[i]]);
-    }
-    return rectangles;
 }

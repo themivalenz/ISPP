@@ -20,11 +20,12 @@ class Figura {
 const vector<string> explode(const string& s, const char& c);
 const vector<Figura> getFigures(string filename);
 const vector<Figura> getRectangles(vector<Figura> figuras);
-void rotateRectangle(Figura rectangulo);
-const int putRectangles(vector<Figura> rectangulos, int w);
+void rotateRectangle(Figura &rectangulo);
+vector<vector<int>> getVertex(vector<Figura> figuras, int ID);
+const int putRectangles(vector<Figura> rectangulos, vector<Figura> figuras, int w);
 const bool overlap(vector<int> heights, int start, int end);
 const int getHeight(vector<int> heights, int start, int end);
-const vector<Figura> swap(vector<Figura> rectangulos, int i, int j);
+void swap(vector<Figura> &rectangulos, int i, int j);
 const int totalAreaRectangles(vector<Figura> rectangulos);
-void printRectangles(vector<Figura> rectangulos);
-const vector<Figura> shuffleRectangles(vector<Figura> rectangulos);
+void shuffleRectangles(vector<Figura> &rectangulos);
+void printSolution(vector<Figura> rectangulos, vector<Figura> figuras, int w);

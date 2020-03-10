@@ -38,28 +38,40 @@ int main(int argc, char *argv[]) {
     clock_t start = clock();
 
     /* Solución inicial: una permutación de rectángulos */
-    rectangulos = shuffleRectangles(rectangulos);
+    shuffleRectangles(rectangulos);
 
     /* Aquí se almacena la mejor solución encontrada */
-    int bestL = putRectangles(rectangulos, w);
+    int bestL = putRectangles(rectangulos, figuras, w);
     vector<Figura> bestPermutation = rectangulos;
+    int areaTotal = bestL*w;
+    float usage = (100.0*areaRectangles)/areaTotal;
+
+    while(usage > 100) {
+        shuffleRectangles(rectangulos);
+        bestL = putRectangles(rectangulos, figuras, w);
+        bestPermutation = rectangulos;
+        areaTotal = bestL*w;
+        usage = (100.0*areaRectangles)/areaTotal;
+    }
 
     /* Hill Climbing con Alguna Mejora */
     for (int k = 0; k < maxIter; k++) {
         
         /* Se genera una nueva permutación de rectángulos (exploración) */
-        rectangulos = shuffleRectangles(rectangulos);
+        shuffleRectangles(rectangulos);
 
         /* Se realiza movimiento swap hasta encontrar alguna mejora (explotación) */
         for (int i = 0; i < rectangulos.size(); i++) {
             bool flag = false;
             for (int j = 0; j < i; j++) {
-                vector<Figura> rect = swap(rectangulos, i, j);
-                int L = putRectangles(rect, w);
-                if (L < bestL) {
+                swap(rectangulos, i, j);
+                int L = putRectangles(rectangulos,figuras, w);
+                int area = L*w;
+                float usage = (100.0*areaRectangles)/area;
+                if (usage <= 100.0 && L < bestL) {
                     flag = true;
                     bestL = L;
-                    bestPermutation = rect;
+                    bestPermutation = rectangulos;
                     break;
                 }
             }
@@ -73,15 +85,15 @@ int main(int argc, char *argv[]) {
     clock_t end = clock();
 
     /* Se calcula el área total del contenedor */
-    int areaTotal = bestL*w;
+    areaTotal = bestL*w;
 
     /* Se calcula el porcentaje efectivo de uso */
-    float usage = (100.0*areaRectangles)/areaTotal;
+    usage = (100.0*areaRectangles)/areaTotal;
 
-    cout << "Solution:" << endl;
-    printRectangles(bestPermutation);
-    cout << "Length: " << bestL << endl;
-    cout << "Usage %: " << usage << endl;
-    cout << "Time: " << (end - start)/CLOCKS_PER_SEC << "[s]" << endl;
+    cout << "====== Best solution ======" << endl;
+    cout << "Length: " << bestL << "; ";
+    cout << "Usage %: " << usage << "; ";
+    cout << "Time: " << double(end - start)/CLOCKS_PER_SEC << "[s]" << endl;
+    printSolution(bestPermutation, figuras, w);
     return 0;
 }
