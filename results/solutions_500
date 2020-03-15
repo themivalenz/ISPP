@@ -1,0 +1,64 @@
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/albano.txt 4900 500
+Calculating...
+====== Best solution ======
+Length: 13243; Usage %: 77.2488; Time: 18.1568[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/blaz.txt 15 500
+Calculating...
+====== Best solution ======
+Length: 40; Usage %: 78; Time: 2.30139[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/dagli.txt 60 500
+Calculating...
+====== Best solution ======
+Length: 106; Usage %: 74.1038; Time: 3.31898[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/jakobs1.txt 40 500
+Calculating...
+====== Best solution ======
+Length: 19; Usage %: 70; Time: 1.61634[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/jakobs2.txt 70 500
+Calculating...
+====== Best solution ======
+Length: 44; Usage %: 67.9221; Time: 1.58695[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/marques.txt 104 500
+Calculating...
+====== Best solution ======
+Length: 115; Usage %: 69.4482; Time: 1.71035[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/poly2a.txt 4000 500
+Calculating...
+====== Best solution ======
+Length: 5094; Usage %: 76.4626; Time: 17.3631[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/poly3a.txt 4000 500 
+Calculating...
+====== Best solution ======
+Length: 7295; Usage %: 80.0892; Time: 64.4862[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/poly4a.txt 4000 500 
+Calculating...
+====== Best solution ======
+Length: 9595; Usage %: 81.1882; Time: 153.252[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/poly5a.txt 4000 500 
+Calculating...
+====== Best solution ======
+Length: 11994; Usage %: 81.1865; Time: 299.261[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/shirts.txt 40 500        
+Calculating...
+====== Best solution ======
+Length: 92; Usage %: 72.4728; Time: 164.057[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/swim.txt 5752 500
+Calculating...
+====== Best solution ======
+Length: 11006; Usage %: 76.9659; Time: 156.991[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/trousers.txt 79 500
+Calculating...
+====== Best solution ======
+Length: 365; Usage %: 75.9424; Time: 46.6263[s]

@@ -1,0 +1,64 @@
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/albano.txt 4900 1000
+Calculating...
+====== Best solution ======
+Length: 13243; Usage %: 77.2488; Time: 20.3166[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/blaz.txt 15 1000
+Calculating...
+====== Best solution ======
+Length: 40; Usage %: 78; Time: 2.40228[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/dagli.txt 60 1000
+Calculating...
+====== Best solution ======
+Length: 101; Usage %: 77.7723; Time: 3.35511[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/jakobs1.txt 40 1000
+Calculating...
+====== Best solution ======
+Length: 20; Usage %: 66.5; Time: 1.6914[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/jakobs2.txt 70 1000
+Calculating...
+====== Best solution ======
+Length: 44; Usage %: 67.9221; Time: 1.74834[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/marques.txt 104 1000
+Calculating...
+====== Best solution ======
+Length: 122; Usage %: 65.4634; Time: 1.79269[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/poly2a.txt 4000 1000
+Calculating...
+====== Best solution ======
+Length: 4996; Usage %: 77.9624; Time: 17.3534[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/poly3a.txt 4000 1000 
+Calculating...
+====== Best solution ======
+Length: 7296; Usage %: 80.0782; Time: 64.1475[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/poly4a.txt 4000 1000 
+Calculating...
+====== Best solution ======
+Length: 9593; Usage %: 81.2051; Time: 152.486[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/poly5a.txt 4000 1000 
+Calculating...
+====== Best solution ======
+Length: 11894; Usage %: 81.8691; Time: 301.074[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/shirts.txt 40 1000
+Calculating...
+====== Best solution ======
+Length: 93; Usage %: 71.6936; Time: 157.428[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/swim.txt 5752 1000
+Calculating...
+====== Best solution ======
+Length: 10818; Usage %: 78.3034; Time: 157.611[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/trousers.txt 79 1000
+Calculating...
+====== Best solution ======
+Length: 365; Usage %: 75.9424; Time: 45.8416[s]

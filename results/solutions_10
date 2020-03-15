@@ -1,0 +1,64 @@
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/albano.txt 4900 10
+Calculating...
+====== Best solution ======
+Length: 13410; Usage %: 76.2868; Time: 18.3515[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/blaz.txt 15 10    
+Calculating...
+====== Best solution ======
+Length: 39; Usage %: 80; Time: 2.27639[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/dagli.txt 60 10
+Calculating...
+====== Best solution ======
+Length: 104; Usage %: 75.5288; Time: 3.3289[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/jakobs1.txt 40 10
+Calculating...
+====== Best solution ======
+Length: 20; Usage %: 66.5; Time: 1.70344[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/jakobs2.txt 70 10 
+Calculating...
+====== Best solution ======
+Length: 44; Usage %: 67.9221; Time: 1.59285[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/marques.txt 104 10
+Calculating...
+====== Best solution ======
+Length: 118; Usage %: 67.6825; Time: 1.70693[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/poly2a.txt 4000 10
+Calculating...
+====== Best solution ======
+Length: 4997; Usage %: 77.9468; Time: 17.4715[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/poly3a.txt 4000 10
+Calculating...
+====== Best solution ======
+Length: 7292; Usage %: 80.1221; Time: 63.6189[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/poly4a.txt 4000 10 
+Calculating...
+====== Best solution ======
+Length: 9597; Usage %: 81.1712; Time: 152.446[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/poly5a.txt 4000 10 
+Calculating...
+====== Best solution ======
+Length: 11892; Usage %: 81.8828; Time: 298.61[s]
+ 
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/shirts.txt 40 10
+Calculating...
+====== Best solution ======
+Length: 91; Usage %: 73.2692; Time: 157.103[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/swim.txt 5752 10
+Calculating...
+====== Best solution ======
+Length: 11134; Usage %: 76.0811; Time: 155.772[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/trousers.txt 79 10
+Calculating...
+====== Best solution ======
+Length: 365; Usage %: 75.9424; Time: 46.6182[s]

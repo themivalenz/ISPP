@@ -1,0 +1,64 @@
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/albano.txt 4900 250
+Calculating...
+====== Best solution ======
+Length: 13346; Usage %: 76.6527; Time: 18.2259[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/blaz.txt 15 250
+Calculating...
+====== Best solution ======
+Length: 40; Usage %: 78; Time: 2.39864[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/dagli.txt 60 250
+Calculating...
+====== Best solution ======
+Length: 106; Usage %: 74.1038; Time: 3.32363[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/jakobs1.txt 40 250
+Calculating...
+====== Best solution ======
+Length: 20; Usage %: 66.5; Time: 1.64551[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/jakobs2.txt 70 250
+Calculating...
+====== Best solution ======
+Length: 42; Usage %: 71.1565; Time: 1.65873[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/marques.txt 104 250
+Calculating...
+====== Best solution ======
+Length: 116; Usage %: 68.8495; Time: 1.71974[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/poly2a.txt 4000 250
+Calculating...
+====== Best solution ======
+Length: 4997; Usage %: 77.9468; Time: 17.4734[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/poly3a.txt 4000 250 
+Calculating...
+====== Best solution ======
+Length: 7099; Usage %: 82.3004; Time: 64.5257[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/poly4a.txt 4000 250 
+Calculating...
+====== Best solution ======
+Length: 9595; Usage %: 81.1882; Time: 152.823[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/poly5a.txt 4000 250 
+Calculating...
+====== Best solution ======
+Length: 11894; Usage %: 81.8691; Time: 297.664[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/shirts.txt 40 250
+Calculating...
+====== Best solution ======
+Length: 93; Usage %: 71.6936; Time: 158.291[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/swim.txt 5752 250
+Calculating...
+====== Best solution ======
+Length: 11229; Usage %: 75.4374; Time: 156.502[s]
+
+[mivalenz@Hyrule ISPP]$ ./ISPP instances/trousers.txt 79 250
+Calculating...
+====== Best solution ======
+Length: 365; Usage %: 75.9424; Time: 47.3435[s]
