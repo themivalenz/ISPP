@@ -20,7 +20,6 @@ class Figura {
 const vector<string> explode(const string& s, const char& c);
 const vector<Figura> getFigures(string filename);
 const vector<Figura> getRectangles(vector<Figura> figuras);
-void rotateRectangle(Figura &rectangulo);
 vector<vector<int>> getVertex(vector<Figura> figuras, int ID);
 const int putRectangles(vector<Figura> rectangulos, vector<Figura> figuras, int w);
 const bool overlap(vector<int> heights, int start, int end);
