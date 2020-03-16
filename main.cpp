@@ -45,7 +45,8 @@ int main(int argc, char *argv[]) {
     vector<Figura> bestPermutation = rectangulos;
     int areaTotal = bestL*w;
     float usage = (100.0*areaRectangles)/areaTotal;
-
+    
+    /* Si la solución anterior es infactible, se busca una nueva */
     while(usage > 100) {
         shuffleRectangles(rectangulos);
         bestL = putRectangles(rectangulos, figuras, w);
